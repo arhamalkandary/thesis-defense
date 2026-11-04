@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>The Thesis Defense - Arcade Game</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Pustaka MediaPipe Hands -->
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <!-- Layar Game Arcade -->
+  <div class="game-wrapper">
+    <!-- Header Skor & Mental Health -->
+    <header class="hud-top">
+      <div class="stats-box">
+        <span class="label">MENTAL HEALTH SKRIPSI</span>
+        <div class="hp-bar-container">
+          <div id="hp-bar" style="width: 100%;"></div>
+        </div>
+      </div>
+      <div class="stats-box center">
+        <span class="label">STATUS DOSEN</span>
+        <span id="boss-status">Menguji Bab 1...</span>
+      </div>
+      <div class="stats-box right">
+        <span class="label">REVISI DITANGKIS</span>
+        <span id="score-display">0</span>
+      </div>
+    </header>
+
+    <!-- Tombol Switch Kamera HP -->
+    <button id="btn-toggle-cam" class="hud-btn-cam">🔄 Putar Kamera</button>
+
+    <!-- Kanvas Render Game -->
+    <canvas id="game-canvas"></canvas>
+
+    <!-- Kamera Feed Mini di Pojok Bawah -->
+    <div class="cam-preview-box">
+      <video id="webcam" playsinline></video>
+      <span class="cam-label">Hand Tracking Active</span>
+    </div>
+
+    <!-- Modal Layar Mulai / Game Over -->
+    <div id="ui-overlay" class="overlay">
+      <div class="modal-card">
+        <h1 id="overlay-title">THE THESIS DEFENSE</h1>
+        <p id="overlay-desc">
+          Tangkis serangan revisi dosen penguji menggunakan perisai tanganmu sebelum Mental Health proposalmu habis!
+        </p>
+        <div class="legend">
+          <span class="item red">🔴 Revisi Bab 2 (Sakit)</span>
+          <span class="item yellow">🟡 Dalil Pembanding (Cepat)</span>
+          <span class="item green">🟢 Kopi Dosen (+Heal HP)</span>
+        </div>
+        <button id="btn-action">MULAI SIDANG PROPOSAL</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

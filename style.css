@@ -1,0 +1,223 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #0d0f18;
+  font-family: 'Consolas', 'Courier New', monospace;
+  color: #fff;
+  user-select: none;
+}
+
+.game-wrapper {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header HUD Atas */
+.hud-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 64px;
+  background: rgba(15, 18, 30, 0.88);
+  border-bottom: 2px solid #00f0ff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 18px;
+  z-index: 20;
+  backdrop-filter: blur(8px);
+}
+
+.stats-box {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stats-box .label {
+  font-size: 11px;
+  color: #8fa0c0;
+  letter-spacing: 1px;
+}
+
+.hp-bar-container {
+  width: 160px;
+  height: 14px;
+  background: #252836;
+  border-radius: 7px;
+  overflow: hidden;
+  border: 1px solid #414766;
+}
+
+#hp-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #ff0055, #00ff88);
+  transition: width 0.2s ease;
+}
+
+.stats-box.center {
+  align-items: center;
+}
+
+#boss-status {
+  font-size: 13px;
+  font-weight: bold;
+  color: #ffcc00;
+  text-shadow: 0 0 8px rgba(255, 204, 0, 0.6);
+}
+
+.stats-box.right {
+  align-items: flex-end;
+}
+
+#score-display {
+  font-size: 22px;
+  font-weight: 900;
+  color: #00f0ff;
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.7);
+}
+
+/* Tombol Kamera HP */
+.hud-btn-cam {
+  position: absolute;
+  top: 76px;
+  right: 14px;
+  z-index: 22;
+  background: rgba(20, 25, 40, 0.85);
+  color: #00f0ff;
+  border: 1px solid #00f0ff;
+  border-radius: 18px;
+  padding: 6px 14px;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Kanvas Game Utama */
+#game-canvas {
+  width: 100vw;
+  height: 100vh;
+  display: block;
+}
+
+/* Preview Webcam Mini di Sudut */
+.cam-preview-box {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  width: 110px;
+  height: 82px;
+  border: 1.5px solid #00f0ff;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #000;
+  z-index: 20;
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.3);
+}
+
+#webcam {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1);
+}
+
+.cam-label {
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  width: 100%;
+  font-size: 8px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.7);
+  color: #00ff88;
+}
+
+/* Overlay Menu */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(10, 12, 20, 0.94);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.modal-card {
+  background: #151824;
+  border: 2px solid #00f0ff;
+  border-radius: 14px;
+  padding: 28px 24px;
+  max-width: 440px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(0, 240, 255, 0.3);
+}
+
+.modal-card h1 {
+  font-size: 24px;
+  color: #00f0ff;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+  text-shadow: 0 0 12px rgba(0, 240, 255, 0.6);
+}
+
+.modal-card p {
+  font-size: 13px;
+  color: #b0bcd4;
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+.legend {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 11.5px;
+  text-align: left;
+  background: #0d0f18;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 22px;
+  border: 1px solid #282f48;
+}
+
+.legend .red { color: #ff3366; }
+.legend .yellow { color: #ffcc00; }
+.legend .green { color: #00ff88; }
+
+#btn-action {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(90deg, #00f0ff, #7000ff);
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(0, 240, 255, 0.4);
+  transition: transform 0.15s;
+}
+
+#btn-action:active {
+  transform: scale(0.97);
+}
